@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/turntable-front/static/js/main.ca2787b5.js",
+    "static/js/453.ae39b09f.chunk.js": "/turntable-front/static/js/453.ae39b09f.chunk.js",
+    "static/media/lp.png": "/turntable-front/static/media/lp.19e9a73e0c5db48ae6d0.png",
+    "static/media/logo.png": "/turntable-front/static/media/logo.f9fa6ee2362d1b84d222.png",
+    "static/media/disc.svg": "/turntable-front/static/media/disc.1e176630956fd67f1da4197085dae882.svg",
+    "index.html": "/turntable-front/index.html",
+    "static/media/search.svg": "/turntable-front/static/media/search.3bd2d37728afd521be7e0a6d85528c9a.svg",
+    "static/media/menu.svg": "/turntable-front/static/media/menu.1e8cc3e751703d431c74015674e271a9.svg",
+    "main.ca2787b5.js.map": "/turntable-front/static/js/main.ca2787b5.js.map",
+    "453.ae39b09f.chunk.js.map": "/turntable-front/static/js/453.ae39b09f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.ca2787b5.js"
+  ]
+}
