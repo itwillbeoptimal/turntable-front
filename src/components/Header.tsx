@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from "../assets/images/logo.png"
+import {ReactComponent as Logo} from "../assets/images/logo.svg";
 import {ReactComponent as MenuIcon} from "../assets/icons/menu.svg";
 import {ReactComponent as SearchIcon} from "../assets/icons/search.svg";
 import {ReactComponent as DiscIcon} from "../assets/icons/disc.svg";
@@ -11,7 +11,7 @@ const HeaderContainer = styled.header`
     height: 45px;
     align-items: center;
     padding: 20px 30px 20px 30px;
-    background-color: #000;
+    background-color: #EAE5E1;
     color: #fff;
 `;
 
@@ -37,7 +37,7 @@ const Header = () => (
                 <MenuIcon/>
             </LeftSection>
             <CenterSection>
-                <img src={Logo} alt="turntable logo" style={{width: 100}} />
+                <Logo />
             </CenterSection>
             <RightSection>
                 <SearchIcon style={{marginRight: 20}}/>
