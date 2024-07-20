@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components';
 import LPImage from '../assets/images/lp.png';
 import SoundWave from "./SoundWave";
 
-// LPContainer 스타일 정의
 const LPContainer = styled.div`
     position: relative;
     width: 320px;
@@ -78,8 +77,8 @@ const AlbumDisplay: React.FC<AlbumDisplayProps> = ({ imageUrl, title, artist }) 
         <MusicInfo>
             <SoundWave />
             <TextInfo>
-                <div style={{ fontWeight: 500 }}>{artist}</div>
-                <div style={{ fontWeight: 400, color: '#9e9e9e' }}>{title}</div>
+                <div style={{ fontFamily: 'Freesentation-5' }}>{artist}</div>
+                <div style={{ color: '#9e9e9e' }}>{title}</div>
             </TextInfo>
         </MusicInfo>
     </>

@@ -11,36 +11,36 @@ const Container = styled.div`
 const InputContainer = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100%;
-    max-width: 800px;
+    width: 95%;
     margin-bottom: 5px;
     justify-content: center;
     align-items: center;
+    position: relative;
 `;
 
 const CommentInput = styled.input`
-    width: calc(72% - 65px);
+    width: calc(95% - 150px);
     padding: 15px;
     margin-left: 15px;
     border: 1px solid #9e9e9e;
     border-radius: 30px;
-    font-family: Freesentation;
-    font-weight: 400;
+    font-family: 'Freesentation-4', sans-serif;
     font-size: 14px;
     color: #191919;
+    padding-right: 70px; 
 `;
 
 const InputButton = styled.button`
-    padding: 10px 20px;
+    padding: 6px 12px;
     border: none;
     border-radius: 30px;
     background-color: #5280EC;
     color: #fff;
     cursor: pointer;
-    font-family: Freesentation;
+    font-family: 'Freesentation-5', sans-serif;
     font-size: 14px;
-    font-weight: 400;
-    margin-left: 10px;
+    position: absolute;
+    right: calc(2% + 12px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,10 +118,10 @@ const CommentItem: React.FC<CommentProps> = ({imageUrl, username, content, uploa
         <UserProfileImage imageUrl={imageUrl}/>
         <CommentContent>
             <UpperContent>
-                <div style={{color: "#5280ec", fontSize: 14, fontWeight: 600, marginBottom: 7}}>
+                <div style={{color: "#5280ec", fontSize: 14, fontFamily: 'Freesentation-6', marginBottom: 7}}>
                     @{username}
                 </div>
-                <div style={{color: "#9e9e9e", fontSize: 14, fontWeight: 400, textAlign: "right", marginBottom: 7}}>
+                <div style={{color: "#9e9e9e", fontSize: 14, textAlign: "right", marginBottom: 7}}>
                     {formatRelativeTime(uploadTime)}
                 </div>
             </UpperContent>
@@ -149,7 +149,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({imageUrl}) => {
             <InputContainer>
                 <UserProfileImage imageUrl={imageUrl}/>
                 <CommentInput
-                    placeholder="방문록을 작성하세요 (100자 이내 작성 가능)"
+                    placeholder="방명록을 작성하세요 (100자 이내 작성 가능)"
                     value={inputValue}
                     onChange={handleInputChange}
                 />

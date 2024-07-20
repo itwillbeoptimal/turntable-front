@@ -18,7 +18,7 @@ const MainPage: React.FC<MainPageProps> = ({ username }) => (
     <>
         <Header />
         <Container>
-            <h1>@{username}</h1>
+            <div style={{fontFamily: 'Freesentation-7', fontSize: 24, paddingTop: 20, paddingBottom: 20}}>@{username}</div>
             <AlbumDisplay
                 imageUrl="https://musicmeta-phinf.pstatic.net/album/002/840/2840793.jpg?type=r360Fll&v=20230608184200"
                 title="그늘은 그림자로"
