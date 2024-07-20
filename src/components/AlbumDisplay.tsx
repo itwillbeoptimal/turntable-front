@@ -11,14 +11,14 @@ const LPContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Optional: Remove or adjust filter if necessary */
     filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
 `;
 
 const AlbumArt = styled.div<{ imageUrl: string }>`
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 15px;
     width: 215px;
     height: 210px;
     background-image: url(${props => props.imageUrl});
@@ -29,10 +29,10 @@ const AlbumArt = styled.div<{ imageUrl: string }>`
 
 const rotate = keyframes`
     from {
-        transform: translateY(-50%) rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-        transform: translateY(-50%) rotate(360deg);
+        transform: rotate(360deg);
     }
 `;
 
@@ -40,8 +40,7 @@ const LP = styled.img`
     position: absolute;
     width: 207px;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 17px;
     z-index: 1;
     animation: ${rotate} 10s linear infinite;
 `;
