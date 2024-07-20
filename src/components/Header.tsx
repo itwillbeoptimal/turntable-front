@@ -15,7 +15,7 @@ const HeaderContainer = styled.header`
     color: #fff;
 `;
 
-const LeftSection = styled.div `
+const LeftSection = styled.div`
     flex: 1;
 `
 
@@ -25,24 +25,28 @@ const CenterSection = styled.div`
     justify-content: center;
 `;
 
-const RightSection = styled.div `
+const RightSection = styled.div`
     flex: 1;
     display: flex;
     justify-content: flex-end;
 `
 
-const Header = () => (
+interface HeaderProps {
+    onDiscIconClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({onDiscIconClick}) => (
     <HeaderContainer>
-            <LeftSection>
-                <MenuIcon/>
-            </LeftSection>
-            <CenterSection>
-                <Logo />
-            </CenterSection>
-            <RightSection>
-                <SearchIcon style={{marginRight: 20}}/>
-                <DiscIcon/>
-            </RightSection>
+        <LeftSection>
+            <MenuIcon style={{cursor: "pointer"}}/>
+        </LeftSection>
+        <CenterSection>
+            <Logo style={{cursor: "pointer"}}/>
+        </CenterSection>
+        <RightSection>
+            <SearchIcon style={{marginRight: 20, cursor: "pointer"}}/>
+            <DiscIcon style={{cursor: "pointer"}} onClick={onDiscIconClick}/>
+        </RightSection>
     </HeaderContainer>
 );
 
