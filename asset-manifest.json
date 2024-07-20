@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.js": "/turntable-front/static/js/main.04a27e7d.js",
+    "main.js": "/turntable-front/static/js/main.83e3ccfa.js",
     "static/js/453.ae39b09f.chunk.js": "/turntable-front/static/js/453.ae39b09f.chunk.js",
     "static/media/lp.png": "/turntable-front/static/media/lp.19e9a73e0c5db48ae6d0.png",
     "static/media/logo.svg": "/turntable-front/static/media/logo.763f530082e8014f3640eff9ea1ef5b3.svg",
+    "static/media/unlike.svg": "/turntable-front/static/media/unlike.a91950c478ea03dce53b14f739854547.svg",
     "static/media/disc.svg": "/turntable-front/static/media/disc.f1a98590f782e11ea91f79830b9147cf.svg",
     "index.html": "/turntable-front/index.html",
+    "static/media/like.svg": "/turntable-front/static/media/like.cc77401efcb6cd446344f92fc916843d.svg",
     "static/media/search.svg": "/turntable-front/static/media/search.3b5412d019d1f3bfb7fda5fab45efe4d.svg",
     "static/media/menu.svg": "/turntable-front/static/media/menu.c063c85f158606df18f2862ba673a6e7.svg",
-    "main.04a27e7d.js.map": "/turntable-front/static/js/main.04a27e7d.js.map",
+    "main.83e3ccfa.js.map": "/turntable-front/static/js/main.83e3ccfa.js.map",
     "453.ae39b09f.chunk.js.map": "/turntable-front/static/js/453.ae39b09f.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.04a27e7d.js"
+    "static/js/main.83e3ccfa.js"
   ]
 }
