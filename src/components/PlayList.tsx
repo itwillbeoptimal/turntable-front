@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import { ReactComponent as LikeIcon } from "../assets/icons/like.svg";
-import { ReactComponent as UnlikeIcon } from "../assets/icons/unlike.svg";
+import {ReactComponent as LikeIcon} from "../assets/icons/like.svg";
+import {ReactComponent as UnlikeIcon} from "../assets/icons/unlike.svg";
+import {ReactComponent as OptionIcon} from "../assets/icons/option.svg";
 
 const PlayListContainer = styled.div`
     position: absolute;
@@ -21,7 +22,7 @@ const PlayListItem = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 10px;
     border-bottom: 1px solid rgba(196, 196, 196, 0.5);
 `;
 
@@ -44,7 +45,7 @@ const PlayListDetail = styled.div`
     font-size: 14px;
 
     .upper-content {
-        font-weight: bold;
+        font-family: 'Freesentation-6';
         margin-bottom: 3px;
     }
 
@@ -79,7 +80,7 @@ interface PlayListProps {
     items: PlayListItemProps[];
 }
 
-const PlayList: React.FC<PlayListProps> = ({ items }) => {
+const PlayList: React.FC<PlayListProps> = ({items}) => {
     const [playListItems, setPlayListItems] = useState(items);
 
     useEffect(() => {
@@ -89,34 +90,54 @@ const PlayList: React.FC<PlayListProps> = ({ items }) => {
     const toggleLike = (index: number) => {
         setPlayListItems(prevItems =>
             prevItems.map((item, i) =>
-                i === index ? { ...item, liked: !item.liked } : item
+                i === index ? {...item, liked: !item.liked} : item
             )
         );
     };
 
     return (
         <PlayListContainer>
-            <div style={{ fontFamily: 'Freesentation-5', marginBottom: '5px' }}>플레이리스트</div>
+            <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+                <div style={{fontFamily: 'Freesentation-5'}}>플레이리스트</div>
+                <div style={{
+                    background: "#191919",
+                    color: "white",
+                    padding: "0 8px",
+                    height: 18,
+                    marginLeft: 5,
+                    borderRadius: 15,
+                    fontFamily: "Freesentation-7",
+                    fontSize: 12,
+                    display: "inline-flex",
+                    alignItems: "center"
+                }}>{playListItems.length}</div>
+            </div>
             {playListItems.map((item, index) => (
-                <PlayListItem key={index}>
-                    <RepresentativeCover imageUrl={item.imageUrl}/>
-                    <PlayListDetail>
-                        <div className="upper-content">
-                            {item.title}
-                        </div>
-                        <div className="lower-content">
-                            <div className="left-content">
-                                {item.description}
+                <div style={{padding: 5}}>
+                    <PlayListItem key={index}>
+                        <RepresentativeCover imageUrl={item.imageUrl}/>
+                        <PlayListDetail>
+                            <div className="upper-content">
+                                {item.title}
                             </div>
-                            <div className="right-content">
-                                {item.playingTime}
+                            <div className="lower-content">
+                                <div className="left-content">
+                                    {item.description}
+                                </div>
+                                <div className="right-content">
+                                    {item.playingTime}
+                                </div>
                             </div>
+                        </PlayListDetail>
+                        <div style={{cursor: "pointer", marginLeft: 20, marginRight: 2}}
+                             onClick={() => toggleLike(index)}>
+                            {item.liked ? <LikeIcon/> : <UnlikeIcon/>}
                         </div>
-                    </PlayListDetail>
-                    <div style={{cursor: "pointer", marginLeft: 20, marginRight: 2}} onClick={() => toggleLike(index)}>
-                        {item.liked ? <LikeIcon/> : <UnlikeIcon/>}
-                    </div>
-                </PlayListItem>
+                        <div style={{cursor: "pointer", marginLeft: 10}}>
+                            <OptionIcon/>
+                        </div>
+                    </PlayListItem>
+                </div>
             ))}
         </PlayListContainer>
     );
