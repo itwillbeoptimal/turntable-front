@@ -8,8 +8,8 @@ const PlayListContainer = styled.div`
     position: absolute;
     top: 85px;
     right: 0;
-    width: 25%;
-    min-width: 250px;
+    width: 33%;
+    min-width: 275px;
     height: 100%;
     background-color: #F9F9F9;
     padding: 20px;
