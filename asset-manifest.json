@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/turntable-front/static/js/main.ee2fbd9c.js",
+    "main.js": "/turntable-front/static/js/main.b611301d.js",
     "static/media/lp.png": "/turntable-front/static/media/lp.19e9a73e0c5db48ae6d0.png",
     "static/media/logo.svg": "/turntable-front/static/media/logo.763f530082e8014f3640eff9ea1ef5b3.svg",
     "static/media/unlike.svg": "/turntable-front/static/media/unlike.a91950c478ea03dce53b14f739854547.svg",
@@ -10,9 +10,9 @@
     "static/media/search.svg": "/turntable-front/static/media/search.3b5412d019d1f3bfb7fda5fab45efe4d.svg",
     "index.html": "/turntable-front/index.html",
     "static/media/menu.svg": "/turntable-front/static/media/menu.c063c85f158606df18f2862ba673a6e7.svg",
-    "main.ee2fbd9c.js.map": "/turntable-front/static/js/main.ee2fbd9c.js.map"
+    "main.b611301d.js.map": "/turntable-front/static/js/main.b611301d.js.map"
   },
   "entrypoints": [
-    "static/js/main.ee2fbd9c.js"
+    "static/js/main.b611301d.js"
   ]
 }
