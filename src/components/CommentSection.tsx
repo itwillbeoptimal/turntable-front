@@ -156,13 +156,13 @@ const CommentSection: React.FC<CommentSectionProps> = ({imageUrl}) => {
                 {inputValue && <InputButton onClick={handleButtonClick}>등록</InputButton>}
             </InputContainer>
             <CommentItem
-                imageUrl="assets/images/profile_image2.webp"
+                imageUrl={`${process.env.PUBLIC_URL}/assets/images/profile_image2.webp`}
                 username="onegqueen"
                 content="주인장 감성 미쳤다"
                 uploadTime={new Date(new Date().getTime() - 5 * 60 * 1000)}
             />
             <CommentItem
-                imageUrl="assets/images/profile_image3.jpeg"
+                imageUrl={`${process.env.PUBLIC_URL}/assets/images/profile_image3.jpeg`}
                 username="l4o5z6"
                 content="검정치마 노래 좋아하세요?"
                 uploadTime={new Date(new Date().getTime() - 3 * 24 * 60 * 60 * 1000)}

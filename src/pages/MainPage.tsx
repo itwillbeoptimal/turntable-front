@@ -46,7 +46,7 @@ const MainPage: React.FC<MainPageProps> = ({ username }) => {
                     title="그늘은 그림자로"
                     artist="검정치마"
                 />
-                <CommentSection imageUrl="assets/images/profile_image1.jpg"/>
+                <CommentSection imageUrl={`${process.env.PUBLIC_URL}/assets/images/profile_image1.jpg`}/>
             </Container>
         </>
     );
