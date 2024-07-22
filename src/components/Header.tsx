@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {ReactComponent as Logo} from "../assets/images/logo.svg";
 import {ReactComponent as MenuIcon} from "../assets/icons/menu.svg";
-import {ReactComponent as SearchIcon} from "../assets/icons/search.svg";
+import {ReactComponent as UserIcon} from "../assets/icons/user.svg";
 import {ReactComponent as DiscIcon} from "../assets/icons/disc.svg";
 
 const HeaderContainer = styled.header`
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({onDiscIconClick}) => (
             <Logo style={{cursor: "pointer"}}/>
         </CenterSection>
         <RightSection>
-            <SearchIcon style={{marginRight: 20, cursor: "pointer"}}/>
+            <UserIcon style={{marginRight: 20, cursor: "pointer"}}/>
             <DiscIcon style={{cursor: "pointer"}} onClick={onDiscIconClick}/>
         </RightSection>
     </HeaderContainer>

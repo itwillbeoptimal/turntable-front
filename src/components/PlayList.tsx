@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {ReactComponent as LikeIcon} from "../assets/icons/like.svg";
-import {ReactComponent as UnlikeIcon} from "../assets/icons/unlike.svg";
-import {ReactComponent as OptionIcon} from "../assets/icons/option.svg";
+import { ReactComponent as LikeIcon } from "../assets/icons/like.svg";
+import { ReactComponent as UnlikeIcon } from "../assets/icons/unlike.svg";
+import { ReactComponent as OptionIcon } from "../assets/icons/option.svg";
+import PlayListTrack from './PlayListTrack';
 
 const PlayListContainer = styled.div`
     position: absolute;
@@ -18,12 +19,18 @@ const PlayListContainer = styled.div`
     overflow-y: auto;
 `;
 
-const PlayListItem = styled.div`
+const PlayListItem = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 20px 10px;
     border-bottom: 1px solid rgba(196, 196, 196, 0.5);
+    cursor: pointer;
+    list-style: none;
+    
+    &:last-child {
+        border: none;
+    }
 `;
 
 const RepresentativeCover = styled.div<{ imageUrl: string }>`
@@ -38,7 +45,7 @@ const RepresentativeCover = styled.div<{ imageUrl: string }>`
     flex-shrink: 0;
 `;
 
-const PlayListDetail = styled.div`
+const PlayListDetailContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -63,7 +70,7 @@ const PlayListDetail = styled.div`
             flex: 1;
             margin-left: 5px;
             text-align: right;
-            color: #9e9e9e
+            color: #9e9e9e;
         }
     }
 `;
@@ -74,14 +81,16 @@ interface PlayListItemProps {
     description: string;
     playingTime: string;
     liked: boolean;
+    tracks: { title: string; duration: string; }[];
 }
 
 interface PlayListProps {
     items: PlayListItemProps[];
 }
 
-const PlayList: React.FC<PlayListProps> = ({items}) => {
+const PlayList: React.FC<PlayListProps> = ({ items }) => {
     const [playListItems, setPlayListItems] = useState(items);
+    const [selectedItem, setSelectedItem] = useState<PlayListItemProps | null>(null);
 
     useEffect(() => {
         setPlayListItems(items);
@@ -90,15 +99,31 @@ const PlayList: React.FC<PlayListProps> = ({items}) => {
     const toggleLike = (index: number) => {
         setPlayListItems(prevItems =>
             prevItems.map((item, i) =>
-                i === index ? {...item, liked: !item.liked} : item
+                i === index ? { ...item, liked: !item.liked } : item
             )
         );
     };
 
+    const handleItemClick = (item: PlayListItemProps) => {
+        setSelectedItem(item);
+    };
+
+    const handleBackClick = () => {
+        setSelectedItem(null);
+    };
+
+    if (selectedItem) {
+        return (
+            <PlayListContainer>
+                <PlayListTrack item={selectedItem} onBack={handleBackClick} />
+            </PlayListContainer>
+        );
+    }
+
     return (
         <PlayListContainer>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-                <div style={{fontFamily: 'Freesentation-5'}}>플레이리스트</div>
+            <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+                <div style={{ fontFamily: 'Freesentation-5' }}>플레이리스트</div>
                 <div style={{
                     background: "#191919",
                     color: "white",
@@ -112,11 +137,11 @@ const PlayList: React.FC<PlayListProps> = ({items}) => {
                     alignItems: "center"
                 }}>{playListItems.length}</div>
             </div>
-            {playListItems.map((item, index) => (
-                <div style={{padding: 5}}>
-                    <PlayListItem key={index}>
-                        <RepresentativeCover imageUrl={item.imageUrl}/>
-                        <PlayListDetail>
+            <ul style={{listStyle: "none", padding: 0}}>
+                {playListItems.map((item, index) => (
+                    <PlayListItem key={index} onClick={() => handleItemClick(item)}>
+                        <RepresentativeCover imageUrl={item.imageUrl} />
+                        <PlayListDetailContainer>
                             <div className="upper-content">
                                 {item.title}
                             </div>
@@ -128,17 +153,17 @@ const PlayList: React.FC<PlayListProps> = ({items}) => {
                                     {item.playingTime}
                                 </div>
                             </div>
-                        </PlayListDetail>
-                        <div style={{cursor: "pointer", marginLeft: 20, marginRight: 2}}
-                             onClick={() => toggleLike(index)}>
-                            {item.liked ? <LikeIcon/> : <UnlikeIcon/>}
+                        </PlayListDetailContainer>
+                        <div style={{ cursor: "pointer", marginLeft: 20, marginRight: 2 }}
+                             onClick={(e) => { e.stopPropagation(); toggleLike(index); }}>
+                            {item.liked ? <LikeIcon /> : <UnlikeIcon />}
                         </div>
-                        <div style={{cursor: "pointer", marginLeft: 10}}>
-                            <OptionIcon/>
+                        <div style={{ cursor: "pointer", marginLeft: 10 }}>
+                            <OptionIcon />
                         </div>
                     </PlayListItem>
-                </div>
-            ))}
+                ))}
+            </ul>
         </PlayListContainer>
     );
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import AlbumDisplay from '../components/AlbumDisplay';
@@ -21,14 +21,22 @@ const playListItems = [
         title: "Playlist 1",
         description: "description 1",
         playingTime: "3:45",
-        liked: true
+        liked: true,
+        tracks: [
+            { title: "Track 1", duration: "3:00" },
+            { title: "Track 2", duration: "2:45" },
+        ],
     },
     {
         imageUrl: "https://musicmeta-phinf.pstatic.net/album/002/005/2005984.jpg?type=r360Fll&v=20230331144254",
         title: "Playlist 2",
         description: "description 2",
         playingTime: "4:05",
-        liked: false
+        liked: false,
+        tracks: [
+            { title: "Track A", duration: "4:00" },
+            { title: "Track B", duration: "3:55" },
+        ],
     },
 ];
 
@@ -37,16 +45,16 @@ const MainPage: React.FC<MainPageProps> = ({ username }) => {
 
     return (
         <>
-            <Header onDiscIconClick={() => setShowPlayList(!showPlayList!)}/>
-            {showPlayList && <PlayList items={playListItems}/>}
+            <Header onDiscIconClick={() => setShowPlayList(!showPlayList)} />
+            {showPlayList && <PlayList items={playListItems} />}
             <Container>
-                <div style={{fontFamily: 'Freesentation-7', fontSize: 24, paddingTop: 20, paddingBottom: 20}}>@{username}</div>
+                <div style={{ fontFamily: 'Freesentation-7', fontSize: 24, paddingTop: 20, paddingBottom: 20 }}>@{username}</div>
                 <AlbumDisplay
                     imageUrl="https://musicmeta-phinf.pstatic.net/album/002/840/2840793.jpg?type=r360Fll&v=20230608184200"
                     title="그늘은 그림자로"
                     artist="검정치마"
                 />
-                <CommentSection imageUrl={`${process.env.PUBLIC_URL}/assets/images/profile_image1.jpg`}/>
+                <CommentSection imageUrl={`${process.env.PUBLIC_URL}/assets/images/profile_image1.jpg`} />
             </Container>
         </>
     );
